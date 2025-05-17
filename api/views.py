@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework_simplejwt.views import TokenObtainPairView
 
-# Create your views here.
+from api.serializers import CustomTokenObtainPairSerializer
+
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    """
+    Get JWT access and refresh tokens for authentication and authorization
+    """
+    serializer_class = CustomTokenObtainPairSerializer
