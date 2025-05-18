@@ -100,8 +100,8 @@ SIMPLE_JWT = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Hardware Management API',
-    'DESCRIPTION': 'Api for authentication, inventory and product management',
+    'TITLE': 'Todo API',
+    'DESCRIPTION': 'Api for task management in a kanban manner',
     'VERSION': '0.1.0',
     'COMPONENT_SPLIT_REQUEST': True,
 }
