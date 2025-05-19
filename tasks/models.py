@@ -4,7 +4,7 @@ import uuid
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from enumfields.drf import EnumField
+from enumfields import EnumField
 
 User = get_user_model()
 
@@ -28,3 +28,6 @@ class Task(models.Model):
 
     class Meta:
         ordering = ["-priority", "created_at"]
+
+    def __str__(self):
+        return self.detail
