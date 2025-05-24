@@ -42,7 +42,7 @@ class TaskList(APIView):
         if not status_str in [s.value for s in TaskStatus]:
             return Response({"detail": "Invalid task status was parsed"}, status=status.HTTP_400_BAD_REQUEST)
         task_status = TaskStatus(value=status_str)
-        tasks = Task.objects.filter(status=task_status)
+        tasks = request.user.tasks.all().filter(status=task_status)
         serializer = self.get_serializer_class()(tasks, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
