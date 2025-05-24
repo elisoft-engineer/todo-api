@@ -33,11 +33,11 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         password = attrs.get("password")
 
         if not email or not password:
-            raise serializers.ValidationError(detail="Phone number and password are required.")
+            raise serializers.ValidationError(detail="email and password are required.")
 
         user = authenticate(email=email, password=password)
         if user is None:
-            raise serializers.ValidationError(detail="Invalid email number or password.")
+            raise serializers.ValidationError(detail="Invalid email address or password.")
 
         refresh = RefreshToken.for_user(user)
         return {
